@@ -1,4 +1,4 @@
-name: Build Plugin ZIP
+name: Build and Release Plugin ZIP
 
 on:
   push:
@@ -6,20 +6,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-zip:
+  build-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Get version number based on date (YY.MM.DD)
+        id: get_version
+        run: |
+          VERSION=$(date +'%y.%m.%d')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version determined: $VERSION"
+
       - name: Install Composer dependencies (if needed)
         run: |
           if [ -f composer.json ]; then
             composer install --no-dev --prefer-dist
           fi
+
       - name: Create plugin ZIP file
         run: zip -r wp-s3-sync-plugin.zip . -x "*.git*"
-      - name: Upload ZIP artifact
-        uses: actions/upload-artifact@v4
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: wp-s3-sync-plugin-zip
-          path: wp-s3-sync-plugin.zip
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: ${{ steps.get_version.outputs.VERSION }}
+          body: "Release of WP S3 Sync Plugin version ${{ steps.get_version.outputs.VERSION }}"
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: wp-s3-sync-plugin.zip
+          asset_name: wp-s3-sync-plugin.zip
+          asset_content_type: application/zip
