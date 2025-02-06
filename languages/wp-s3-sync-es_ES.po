@@ -1,0 +1,138 @@
+# Copyright (C) 2025 Jérôme Heissler
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP S3 Sync Plugin 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-s3-sync-plugin\n"
+"Last-Translator: Jérôme Heissler <your-email@example.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-06T13:39:44+00:00\n"
+"PO-Revision-Date: 2025-02-06 00:00+0000\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: wp-s3-sync\n"
+
+#. Plugin Name of the plugin
+#: wp-s3-sync-plugin.php
+msgid "WP S3 Sync Plugin"
+msgstr "Plugin WP S3 Sync"
+
+#. Plugin URI of the plugin
+#: wp-s3-sync-plugin.php
+msgid "https://github.com/jeromeheissler/wp-s3-sync-plugin"
+msgstr "https://github.com/jeromeheissler/wp-s3-sync-plugin"
+
+#. Description of the plugin
+#: wp-s3-sync-plugin.php
+msgid "Automatically synchronizes a directory to an Amazon S3 bucket."
+msgstr "Sincroniza automáticamente un directorio con un bucket de Amazon S3."
+
+#. Author of the plugin
+#: wp-s3-sync-plugin.php
+msgid "Jérôme Heissler"
+msgstr "Jérôme Heissler"
+
+#. Author URI of the plugin
+#: wp-s3-sync-plugin.php
+msgid "https://github.com/jeromeheissler"
+msgstr "https://github.com/jeromeheissler"
+
+#: wp-s3-sync-plugin.php:63
+#: wp-s3-sync-plugin.php:118
+msgid "WP S3 Sync Settings"
+msgstr "Configuración de WP S3 Sync"
+
+#: wp-s3-sync-plugin.php:64
+msgid "S3 Sync"
+msgstr "Sincronización S3"
+
+#: wp-s3-sync-plugin.php:64
+msgid "disabled"
+msgstr "deshabilitado"
+
+#: wp-s3-sync-plugin.php:124
+msgid "Export Directory (Watch Dir)"
+msgstr "Directorio de exportación (Carpeta observada)"
+
+#: wp-s3-sync-plugin.php:127
+msgid "Absolute path where Simply Static generates files."
+msgstr "Ruta absoluta donde Simply Static genera los archivos."
+
+#: wp-s3-sync-plugin.php:131
+msgid "S3 Bucket (Dest Bucket)"
+msgstr "Bucket S3 (Bucket de destino)"
+
+#: wp-s3-sync-plugin.php:134
+msgid "Name of the S3 bucket to sync files to."
+msgstr "Nombre del bucket S3 al que sincronizar los archivos."
+
+#: wp-s3-sync-plugin.php:138
+msgid "S3 Region"
+msgstr "Región S3"
+
+#: wp-s3-sync-plugin.php:141
+msgid "Region of the S3 bucket (default is eu-west-3)."
+msgstr "Región del bucket S3 (por defecto eu-west-3)."
+
+#: wp-s3-sync-plugin.php:145
+msgid "AWS Access Key ID"
+msgstr "ID de clave de acceso AWS"
+
+#: wp-s3-sync-plugin.php:148
+#: wp-s3-sync-plugin.php:155
+msgid "Leave blank to use the IAM role."
+msgstr "Deje en blanco para usar el rol IAM."
+
+#: wp-s3-sync-plugin.php:152
+msgid "AWS Secret Access Key"
+msgstr "Clave secreta de AWS"
+
+#: wp-s3-sync-plugin.php:159
+msgid "Trigger Hook"
+msgstr "Hook de disparo"
+
+#: wp-s3-sync-plugin.php:162
+msgid "Name of the hook on which to trigger the sync (default: ss_after_cleanup)."
+msgstr "Nombre del hook que dispara la sincronización (por defecto: ss_after_cleanup)."
+
+#: wp-s3-sync-plugin.php:166
+msgid "Enable Sync"
+msgstr "Habilitar sincronización"
+
+#: wp-s3-sync-plugin.php:171
+msgid "Enable"
+msgstr "Habilitar"
+
+#: wp-s3-sync-plugin.php:173
+msgid "Uncheck to disable automatic synchronization."
+msgstr "Desmarque para deshabilitar la sincronización automática."
+
+#: wp-s3-sync-plugin.php:189
+msgid "WP S3 Sync: Incomplete settings. Please configure the export directory and S3 bucket."
+msgstr "WP S3 Sync: Configuración incompleta. Por favor, configure el directorio de exportación y el bucket S3."
+
+#: wp-s3-sync-plugin.php:193
+msgid "WP S3 Sync: Synchronization is disabled."
+msgstr "WP S3 Sync: La sincronización está deshabilitada."
+
+#: wp-s3-sync-plugin.php:203
+msgid "WP S3 Sync: Export directory does not exist: %s"
+msgstr "WP S3 Sync: El directorio de exportación no existe: %s"
+
+#: wp-s3-sync-plugin.php:238
+msgid "WP S3 Sync: Uploaded file: %s"
+msgstr "WP S3 Sync: Archivo subido: %s"
+
+#: wp-s3-sync-plugin.php:240
+msgid "WP S3 Sync: Error uploading %s: %s"
+msgstr "WP S3 Sync: Error al subir %s: %s"
+
+#: wp-s3-sync-plugin.php:253
+msgid "WP S3 Sync: Sync enabled on hook: %s"
+msgstr "WP S3 Sync: Sincronización habilitada en el hook: %s"
+
+#: wp-s3-sync-plugin.php:255
+msgid "WP S3 Sync: Sync disabled."
+msgstr "WP S3 Sync: Sincronización deshabilitada."

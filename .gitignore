@@ -1,0 +1,20 @@
+# Ignore node_modules and vendor directories
+/node_modules
+/vendor
+
+# Ignore Composer lock file (if desired)
+composer.lock
+
+# Ignore build output and temporary files
+*.log
+*.tmp
+
+# Ignore environment files
+.env
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore CDK output folder if present
+/cdk.out/
