@@ -7,17 +7,15 @@ on:
 
 jobs:
   build-release:
+    name: Build and Release Plugin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Get version number based on date (YY.MM.DD)
-        id: get_version
-        run: |
-          VERSION=$(date +'%y.%m.%d')
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-          echo "Version determined: $VERSION"
+      - uses: fregante/daily-version-action@v2
+        name: Create tag if necessary
+        id: daily-version
 
       - name: Install Composer dependencies (if needed)
         run: |
@@ -34,9 +32,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: ${{ steps.get_version.outputs.VERSION }}
-          body: "Release of WP S3 Sync Plugin version ${{ steps.get_version.outputs.VERSION }}"
+          tag_name: ${{ steps.daily-version.outputs.version }}
+          release_name: ${{ steps.daily-version.outputs.version }}
+          body: "Release of WP S3 Sync Plugin version ${{ steps.daily-version.outputs.version }}"
           draft: false
           prerelease: false
 
